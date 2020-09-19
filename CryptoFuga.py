@@ -7,11 +7,11 @@ def Key_Generator(Bytes):
     return key
 
 
-    def Key_Loader(self, Name):
-        key_file = open(Name, "rb")
-        self.key = key_file.read()
-        key_file.close()
-        return self.key
+def Key_Loader(Name):
+    key_file = open(Name, "rb")
+    key = key_file.read()
+    key_file.close()
+    return key
 
     def Key_Save(self):
         key_file = open("key", "wb")
