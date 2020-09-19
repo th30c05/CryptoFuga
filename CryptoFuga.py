@@ -6,9 +6,6 @@ def Key_Generator(Bytes):
     key: bytes = get_random_bytes(Bytes)
     return key
 
-    def Key_Generator(self, Bytes):
-        self.key = get_random_bytes(Bytes)
-        return self.key
 
     def Key_Loader(self, Name):
         key_file = open(Name, "rb")
