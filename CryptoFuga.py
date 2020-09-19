@@ -2,9 +2,9 @@ from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 
 
-class Key:
-    def __init__(self):
-        self.key = None
+def Key_Generator(Bytes):
+    key: bytes = get_random_bytes(Bytes)
+    return key
 
     def Key_Generator(self, Bytes):
         self.key = get_random_bytes(Bytes)
