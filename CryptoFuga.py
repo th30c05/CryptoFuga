@@ -3,12 +3,12 @@ from Crypto.Random import get_random_bytes
 
 
 def Key_Generator(Bytes):
-    key: bytes = get_random_bytes(Bytes)
+    key = get_random_bytes(Bytes)
     return key
 
 
-def Key_Loader(Name):
-    key_file = open(Name, "rb")
+def Key_Loader(File_Name):
+    key_file = open(File_Name, "rb")
     key = key_file.read()
     key_file.close()
     return key
@@ -20,8 +20,8 @@ def Key_Save(Key):
     key_file.close()
 
 
-def Data_Load(Name):
-    data_file = open(Name, "rb")
+def Data_Load(File_Name):
+    data_file = open(File_Name, "rb")
     data = data_file.read()
     data_file.close()
     return data
@@ -34,9 +34,9 @@ def Data_Encrypt(Data, Key):
     return cipher
 
 
-def Data_Encrypt_Save(cipher):
-    file_out = open("encrypted", "wb")
-    [file_out.write(x) for x in (cipher[0].nonce, cipher[2], cipher[1])]
+def Data_Encrypt_Save(Cipher, File_Name):
+    file_out = open(File_Name, "wb")
+    [file_out.write(x) for x in (Cipher[0].nonce, Cipher[2], Cipher[1])]
     file_out.close()
 
 
