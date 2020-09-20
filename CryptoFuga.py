@@ -28,10 +28,10 @@ def Data_Load(File_Name):
 
 
 def Data_Encrypt(Data, Key):
-    cipher = AES.new(Key, AES.MODE_EAX)
-    ciphertext, tag = cipher.encrypt_and_digest(Data)
-    cipher = [cipher, ciphertext, tag]
-    return cipher
+    Cipher = AES.new(Key, AES.MODE_EAX)
+    Ciphertext, tag = Cipher.encrypt_and_digest(Data)
+    Cipher = [Cipher, Ciphertext, tag]
+    return Cipher
 
 
 def Data_Encrypt_Save(Cipher, File_Name):
@@ -40,14 +40,14 @@ def Data_Encrypt_Save(Cipher, File_Name):
     file_out.close()
 
 
-def Encrypted_Load(Name, Key):
-    data_encrypted = open(Name, "rb")
-    nonce, tag, ciphertext = [data_encrypted.read(x) for x in (16, 16, -1)]
-    cipher = AES.new(Key, AES.MODE_EAX, nonce)
-    cipher = [cipher, ciphertext, tag]
-    return cipher
+def Encrypted_Load(File_Name, Key):
+    data_encrypted = open(File_Name, "rb")
+    nonce, tag, Ciphertext = [data_encrypted.read(x) for x in (16, 16, -1)]
+    Cipher = AES.new(Key, AES.MODE_EAX, nonce)
+    Cipher = [Cipher, Ciphertext, tag]
+    return Cipher
 
 
-def Data_Decrypt(cipher):
-    data = cipher.decrypt_and_verify(cipher[1], cipher[2])
+def Data_Decrypt(Cipher):
+    data = Cipher.decrypt_and_verify(Cipher[1], Cipher[2])
     return data
