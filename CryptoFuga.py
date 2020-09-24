@@ -30,14 +30,6 @@ def Data_Encrypt(Cipher, Data):
     return Encrypt
 
 
-def Encrypted_Load(File_Name, Key):
-    data_encrypted = open(File_Name, "rb")
-    nonce, tag, Ciphertext = [data_encrypted.read(x) for x in (16, 16, -1)]
-    Cipher = AES.new(Key, AES.MODE_EAX, nonce)
-    Cipher = [Cipher, Ciphertext, tag]
-    return Cipher
-
-
-def Data_Decrypt(Cipher):
-    data = Cipher.decrypt_and_verify(Cipher[1], Cipher[2])
-    return data
+def Data_Decrypt(Cipher, Data):
+    Decrypt = Cipher.decrypt_and_verify(Data)
+    return Decrypt
