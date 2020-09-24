@@ -19,6 +19,10 @@ def Key_Loader(File_Name):
     key_file.close()
     return key
 
+def Bytes_Save(Bytes, File_Name):
+    Bytes_File = open(File_Name, "wb")
+    Bytes_File.write(Bytes)
+    Bytes_File.close()
 
 def Key_Save(Key):
     key_file = open("key", "wb")
