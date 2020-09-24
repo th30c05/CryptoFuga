@@ -19,10 +19,10 @@ def Bytes_Save(Bytes, File_Name):
     Bytes_File.write(Bytes)
     Bytes_File.close()
 
-def Key_Save(Key):
-    key_file = open("key", "wb")
-    key_file.write(Key)
-    key_file.close()
+
+def Cipher_Gen(Key, IV):
+    Cipher = AES.new(Key, AES.MODE_EAX, IV)
+    return Cipher
 
 
 def Data_Load(File_Name):
