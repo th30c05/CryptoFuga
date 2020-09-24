@@ -25,24 +25,9 @@ def Cipher_Gen(Key, IV):
     return Cipher
 
 
-def Data_Load(File_Name):
-    data_file = open(File_Name, "rb")
-    data = data_file.read()
-    data_file.close()
-    return data
-
-
-def Data_Encrypt(Data, Key):
-    Cipher = AES.new(Key, AES.MODE_EAX)
-    Ciphertext, tag = Cipher.encrypt_and_digest(Data)
-    Cipher = [Cipher, Ciphertext, tag]
-    return Cipher
-
-
-def Data_Encrypt_Save(Cipher, File_Name):
-    file_out = open(File_Name, "wb")
-    [file_out.write(x) for x in (Cipher[0].nonce, Cipher[2], Cipher[1])]
-    file_out.close()
+def Data_Encrypt(Cipher, Data):
+    Encrypt = Cipher.encrypt_and_digest(Data)
+    return Encrypt
 
 
 def Encrypted_Load(File_Name, Key):
