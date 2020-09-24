@@ -13,11 +13,6 @@ def Bytes_Load(File_Name):
     Bytes_File.close()
     return Bytes
 
-def Key_Loader(File_Name):
-    key_file = open(File_Name, "rb")
-    key = key_file.read()
-    key_file.close()
-    return key
 
 def Bytes_Save(Bytes, File_Name):
     Bytes_File = open(File_Name, "wb")
