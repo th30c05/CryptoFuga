@@ -7,6 +7,11 @@ def Bytes_Gen(Bytes):
     return Bytes
 
 
+def Bytes_Load(File_Name):
+    Bytes_File = open(File_Name, "rb")
+    Bytes = Bytes_File.read()
+    Bytes_File.close()
+    return Bytes
 
 def Key_Loader(File_Name):
     key_file = open(File_Name, "rb")
