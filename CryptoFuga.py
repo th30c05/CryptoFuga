@@ -1,27 +1,26 @@
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 
-
 def Bytes_Gen(Bytes):
-    Bytes = get_random_bytes(Bytes)
+    Bytes = bytes(get_random_bytes(Bytes))
     return Bytes
 
 
 def Bytes_Load(File_Name):
     Bytes_File = open(File_Name, "rb")
-    Bytes = Bytes_File.read()
+    Bytes = bytes(Bytes_File.read())
     Bytes_File.close()
-    return Bytes
+    return bytes(Bytes)
 
 
 def Bytes_Save(Bytes, File_Name):
     Bytes_File = open(File_Name, "wb")
-    Bytes_File.write(Bytes)
+    Bytes_File.write(bytes(Bytes))
     Bytes_File.close()
 
 
 def Cipher_Gen(Key, IV):
-    Cipher = AES.new(Key, AES.MODE_EAX, IV)
+    Cipher = AES.new(bytes(Key), AES.MODE_EAX, bytes(IV))
     return Cipher
 
 
